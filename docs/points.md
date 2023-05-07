@@ -17,15 +17,34 @@ we 'll need at least the following collections to implement the service:
 | password | string |
 | user_type | string |
 
-**2-Departments table:**
+**2-doctors:**
+| column | type |
+|--------|------|
+| doctor_id (pk)| int |
+| doctor_name | string |
+| doctor_password | string |
+| courses_id | [string] |
+---
+
+**3-students:**
+| column | type |
+|--------|------|
+| student_id (pk)| int |
+| student_name | string |
+| student_password | string |
+| courses_ids | [string] |
+---
+
+**4-Departments table:**
 
 | column | type |
 |--------|------|
 | department_id (pk)| int |
 | department_name | string |
 | department_code | string |
+---
 
-**3-Courses table:**
+**5-Courses table:**
 
 | column | type |
 |--------|------|
@@ -33,6 +52,9 @@ we 'll need at least the following collections to implement the service:
 | course_name | string |
 | course_code | string |
 | department_id (FK->2) | int |
+| req_courses | [string] |   
+---
+
 
 **4-Materials table:**
 
@@ -43,43 +65,28 @@ we 'll need at least the following collections to implement the service:
 | material_code | string |
 | course_id (FK->3)| int |
 
-**5-Enrollments table:**
-
-| column | type |
-|--------|------|
-| enrollment_id (pk)| int |
-| student_id (FK->1)| string |
-| course_id (FK->3)| string |
-| grade | int |
 
 **6-Attendance table:**
 
 | column | type |
 |--------|------|
-| attendance_id (pk)| int |
-| date | string |
-| material_id (FK->4)| string |
-| present_students | JSON array |
+| course_id (pk)| int |
+| student_name | [string] |
+---
 
+//not complete
 **7-Files table:**
 
 | column | type |
 |--------|------|
-| file_id (pk)| int |
-| file_name | string |
-| file_path | string |
-| material_id( FK->4 ) | int |
+| file_id (pk)| [int] |
+| file_name | [string] |
+| course_id | string |
 
 **8-success cources:**
 
 | column | type |
 |--------|------|
-| studint id | int |
-| course id| string |
-
-
-**9-requiers of cources:**
-
-| column | type |
-|--------|------|
-| courses ids | int |
+| studint_id | int |
+| course_id| [string] |
+---

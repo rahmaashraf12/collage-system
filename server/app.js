@@ -7,6 +7,7 @@ dotenv.config();
 import adminrouts from "./routs/adminRouts/adminCreateUser.js"
 import doctorrouts from "./routs/doctorRouts/doctor-routs.js"
 import studentrouts from "./routs/studentRouts/student-routs.js"
+import loginrouts from "./routs/login-routs.js"
 
 
 import User from "./database/models/users_model.js"
@@ -18,14 +19,19 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './templates');
 
+// Parse incoming request bodies
+app.use(express.urlencoded({ extended: true }));
 
 
-app.get("/login",async(req,res)=>{
-    res.render("login",{layout:false})
-})
+app.post('/log', (req, res) => {
+    const { name, password } = req.body;
+    res.send(`Name: ${name}, Email: ${password}`);
+
+});
 
 
 //routing
+app.use("/login",loginrouts);
 app.use("/admin",adminrouts);
 app.use("/doctor",doctorrouts);
 app.use("/student",studentrouts);
