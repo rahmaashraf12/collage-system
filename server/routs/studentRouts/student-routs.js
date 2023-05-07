@@ -3,7 +3,7 @@ import db from "../../database/MongoDBconnection.js";
 const router = new Router();
 
 router.get("/",(req,res)=>{
-    res.render("studentTemplates/studentHomePage",{layout : false});   
+    res.render("studentTemplates/studentHomePage");   
 })
 
 

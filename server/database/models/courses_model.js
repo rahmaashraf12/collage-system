@@ -7,13 +7,18 @@ const courses_schama = new Schema({
 },
 course_code:{ 
     type: String,
-    required:true
+    required:true,
+    unique:true
 },
 department_id:{ 
-    type: String,
+    type: [String],
     required:true
 },
+requre_course:{
+    type:[String],
+    required:true
+}
 });
 
 
-export default model("users",courses_schama);
+export default model("courses",courses_schama);

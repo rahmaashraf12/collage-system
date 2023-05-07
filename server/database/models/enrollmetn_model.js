@@ -2,7 +2,7 @@ import { Schema ,model} from "mongoose";
 
 const enrollmentSchema = new Schema({
   student_name:{ 
-    type: [String],
+    type: String,
     required:true
 },
 student_id:{
@@ -21,4 +21,4 @@ grade :{
 });
 
 
-export default model("enrollmentModel",enrollmentSchema);
+export default model("enrollments",enrollmentSchema);
