@@ -1,23 +1,15 @@
-// import { Schema ,model} from "mongoose";
+import { Schema ,model} from "mongoose";
 
-// const userSchema = new Schema({
-//   fist_name:{ 
-//     type: [String],
-//     required:true
-// },
-// last_name:{ 
-//     type: String,
-//     required:true
-// },
-// password:{ 
-//     type: String,
-//     required:true
-// },
-// user_type:{ 
-//     type: String,
-//     required:true
-// }
-// });
+const departmentSchema = new Schema({
+  department_name:{ 
+    type: [String],
+    required:true
+},
+department_code:{ 
+    type: String,
+    required:true
+}
+});
 
 
-// export default model("users",userSchema);
+export default model("departmentModel",departmentSchema);
