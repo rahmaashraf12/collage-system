@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/coll-system");
+
+import dotenv from "dotenv";
+dotenv.config();
+mongoose.connect(process.env.dbURL);
+
 const db = mongoose.connection;
 db.on('error', err => {
     console.error('MongoDB connection error:', err);

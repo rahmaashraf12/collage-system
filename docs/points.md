@@ -2,10 +2,10 @@
  
  
 ##  Storage
-we 'll use a rational database 
+we 'll use a nosql database 
 
 ### Schema: ###
-we 'll need at least the following entities to implement the service:
+we 'll need at least the following collections to implement the service:
 
 **1-Users table:**
 
