@@ -13,7 +13,7 @@ import loginrouts from "./routs/login-routs.js"
 import User from "./database/models/users_model.js"
 const app = express();
 
-
+app.use(express.urlencoded({extended:true}));
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
