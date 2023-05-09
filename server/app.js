@@ -21,6 +21,12 @@ app.set('views', './templates');
 
 // Parse incoming request bodies
 app.use(express.urlencoded({ extended: true }));
+//connect to css
+app.use(express.static('templates/loginTemplate'));
+app.use(express.static('templates/adminTemplates/loginTemplate/css'));
+app.use(express.static('templates/doctorTemplates/loginTemplate/css'));
+app.use(express.static('templates/studentTemplates/loginTemplate/css'));
+
 
 
 app.post('/log', (req, res) => {
