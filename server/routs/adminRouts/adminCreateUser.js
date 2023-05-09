@@ -12,9 +12,9 @@ router.get("/",(req,res)=>{
 
 router.get("/createUser",(req,res)=>{
     users_model.create({
-        first_name: "ebrahim",
-        last_name: "sayid",
-        password: "200",
+        first_name: "samin",
+        last_name: "atia",
+        password: "100",
         user_type:"student"
     })
     res.send("200 OK")

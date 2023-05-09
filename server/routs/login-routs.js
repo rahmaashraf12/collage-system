@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { loginAuth } from "../controllers/loginAuth.js";
+import { loginAuth } from "../controllers/loginAuth.js"
 const router = new Router();
 
 router.get("/", (req, res) => {
-  res.render("login");
+  res.render("loginTemplate/login");
 });
 
 router.post('/', loginAuth);
