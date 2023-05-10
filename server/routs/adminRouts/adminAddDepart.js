@@ -1,7 +1,7 @@
 import {Router} from "express";
 import departments_model from "../../database/models/departments_model.js";
 import db from "../../database/MongoDBconnection.js";
-import { allDepartments } from "../../controllers/allDepartments.js";
+import { allDepartments ,store } from "../../controllers/allDepartments.js";
 import { faker } from "@faker-js/faker";
 
 
@@ -9,6 +9,8 @@ import { faker } from "@faker-js/faker";
 const router = new Router();
 
 router.get("/",allDepartments);
+router.post("/",store);
+
 
 
 

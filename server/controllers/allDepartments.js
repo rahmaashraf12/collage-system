@@ -16,7 +16,7 @@ export const store=(req,res)=>{
 
 
 
-    courses_model.create({
+    departments_model.create({
         department_name : name,
         department_code : code,
     });
