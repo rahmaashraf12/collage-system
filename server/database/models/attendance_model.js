@@ -9,7 +9,8 @@ const attendance = new Schema({
   student_name:{
     type :[String],
     required:true
-  }
+  },
+  
 });
 
 
