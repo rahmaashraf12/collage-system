@@ -1,14 +1,39 @@
 import {Router} from "express";
-import users_model from "../../database/models/users_model.js";
-
-
+import courses_model from "../../database/models/courses_model.js";
 import db from "../../database/MongoDBconnection.js";
+import { faker } from "@faker-js/faker";
+import { allCourses ,store} from "../../controllers/allCourses.js";
+
+
 const router = new Router();
 
-router.get("/",(req,res)=>{
-    res.render("adminTemplates/adminAddCourse",{layout : false});
-   
+router.get("/",allCourses);
+router.post("/",store);
+
+
+
+
+
+
+
+
+
+
+router.get("/addData",(req,res)=>{
+    const departmentsArray=[];
+    for(let i=0;i<5;i++){
+        departmentsArray.push({
+            course_name:faker.name.firstName(),
+            course_code:i,
+            department_id:i,
+            requre_course:faker.name.firstName(),
+
+        });
+    }
+    courses_model.create(departmentsArray);
+    res.send("done");
 });
+
 
 
 

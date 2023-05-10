@@ -1,1 +1,28 @@
-<h1>we will show our departments here lkjnibnoilkm </h1>
+<div>
+    <form action="/departments" method="post">
+        <h1>add new department</h1>
+        
+        <!-- department name-->
+         <div>
+            <label>NAME</label>
+            <input type="text" class="" name="name">
+        </div>
+        <!--department code-->
+         <div>
+            <label>code</label>
+            <input type="text-" class="" name="code">
+        </div>
+        
+
+
+        <button>add</button>
+
+    </form>
+</div>
+
+<h1> our departments :</h1>
+<div>
+    {{#each departments}}
+    {{department_name}}-{{department_code}}<br>
+    {{/each}}
+</div>

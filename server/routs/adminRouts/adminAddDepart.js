@@ -1,14 +1,29 @@
 import {Router} from "express";
-import users_model from "../../database/models/users_model.js";
-
-
+import departments_model from "../../database/models/departments_model.js";
 import db from "../../database/MongoDBconnection.js";
+import { allDepartments } from "../../controllers/allDepartments.js";
+import { faker } from "@faker-js/faker";
+
+
+
 const router = new Router();
 
-router.get("/",(req,res)=>{
-    res.render("adminTemplates/adminAddDepart",{layout : false});
-   
+router.get("/",allDepartments);
+
+
+
+router.get("/addData",(req,res)=>{
+    const departmentsArray=[];
+    for(let i=0;i<5;i++){
+        departmentsArray.push({
+            department_name:faker.name.firstName(),
+            department_code :i,
+        });
+    }
+    departments_model.create(departmentsArray);
+    res.send("done");
 });
+
 
 
 

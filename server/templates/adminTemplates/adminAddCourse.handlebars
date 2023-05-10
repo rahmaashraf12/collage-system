@@ -1,1 +1,51 @@
-<h1>we will show our courses here</h1>
+
+<div>
+    <form action="/courses" method="post">
+        <h1>add new course</h1>
+        <!--course id-->
+        <div>
+            <label>id</label>
+            <input type="text-" class="" name="id">
+        </div>
+        <!-- course name-->
+         <div>
+            <label>NAME</label>
+            <input type="text-" class="" name="name">
+        </div>
+        <!--course code-->
+         <div>
+            <label>code</label>
+            <input type="text-" class="" name="code">
+        </div>
+        <!--department -->
+         <div>
+            <label>dep</label>
+            <select name="department">
+                {{#each departments}}
+                <option value="{{department_code}} ">{{department_name}} </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div>
+            <label>requre_course</label>
+            <select name="requre_course">
+                {{#each courses}}
+                <option value="{{course_code}} ">{{course_name}} </option>
+                {{/each}}
+            </select>
+        </div>
+
+
+        <button>add</button>
+
+    </form>
+</div>
+
+<h1>OUR COURSES</h1>
+<div>
+    {{#each courses}}
+    {{course_name}}-{{course_code}}-{{department_id}}--{{requre_course}}
+    <br>
+    {{/each}}
+</div>
