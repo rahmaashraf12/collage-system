@@ -3,11 +3,14 @@ import { engine } from 'express-handlebars';
 
 import dotenv from "dotenv";
 dotenv.config();
-
 import adminrouts from "./routs/adminRouts/adminCreateUser.js"
 import doctorrouts from "./routs/doctorRouts/doctor-routs.js"
 import studentrouts from "./routs/studentRouts/student-routs.js"
 import loginrouts from "./routs/login-routs.js"
+import departmensRoutes from "./routs/adminRouts/adminAddDepart.js"
+import coursesRoutes from "./routs/adminRouts/adminAddCourse.js"
+import adminHomePage from "./routs/adminRouts/adminHomePage.js"
+
 
 
 import User from "./database/models/users_model.js"
@@ -41,6 +44,10 @@ app.use("/login",loginrouts);
 app.use("/admin",adminrouts);
 app.use("/doctor",doctorrouts);
 app.use("/student",studentrouts);
+app.use("/departments",departmensRoutes);
+app.use("/courses",coursesRoutes);
+app.use("/adminHomePage",adminHomePage);
+
 
 
 
