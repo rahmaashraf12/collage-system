@@ -2,13 +2,14 @@ import {Router} from "express";
 import courses_model from "../../database/models/courses_model.js";
 import db from "../../database/MongoDBconnection.js";
 import { faker } from "@faker-js/faker";
-import { allCourses ,store} from "../../controllers/allCourses.js";
+import { allCourses ,show,store} from "../../controllers/allCourses.js";
 
 
 const router = new Router();
 
 router.get("/",allCourses);
 router.post("/",store);
+router.get("/:code",show);
 
 
 

@@ -13,7 +13,6 @@ export const allCourses=async(req,res)=>{
 
 export const store=(req,res)=>{
     console.log(req.body);
-    const id=req.body.id;
     const name=req.body.name;
     const code=req.body.code;
     const department=req.body.department;
@@ -27,5 +26,15 @@ export const store=(req,res)=>{
         department_id : department,
         requre_course : requre_course
     });
+
+}
+
+export const show=async(req,res)=>{
+     const {code}=req.params;
+
+     const mycourse= await courses_model.findById(code).populate('department_id').lean();
+     console.log(mycourse);
+
+     res.render("adminTemplates/course_info.handlebars",{mycourse})
 
 }
