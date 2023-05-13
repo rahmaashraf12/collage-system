@@ -1,49 +1,124 @@
-<div>
-    <form action="/courses" method="post">
-        <h1>add new course</h1>
+
+<style>
+      th {
+     
+    border-radius: 30px ;
+    background-color: rgb(13, 110, 253);
+    color: aliceblue;
+    
+       width: 200px;
+      
+         margin-left: 450px;
+       margin-top: 50px;
+      padding: 7px;
+      padding-left: 20px;
+      padding-right: 20px;
+      text-align: center;
+    }
+     td{
+      font-size: large;
+       padding-left: 60px;
+    }
+     table {
+  border-spacing: 15px;
+    margin-left: 400px;
+       }
+     #btn{
+         font-family:'Gill Sans', 'Gill Sans MT',' Calibr', 'Trebuchet MS', sans-serif;
+         font-size: large;
+         padding: 9px;
+         margin-left: 500px;
+        background-color: rgb(55, 155, 209);
+         
+     }
+       h1{
+            background-color: rgb(13, 110, 253);
+             text-align: center;
+             color: aliceblue;
+             font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+    .form{
+        padding: 25px;
+    }
+     .name{
+        font-family:'Gill Sans', 'Gill Sans MT',' Calibr', 'Trebuchet MS', sans-serif;
+        color: rgb(6, 11, 69);
         
+     }
+     #name{
+        border-radius: 20px;
+     }
+      #code{
+        border-radius: 20px;
+     }
+     
+      #select{
+        border-radius: 20px;
+     }
+</style>
+<h1>add new course</h1>
+<div>
+    <form action="/courses" method="post" class="form">
+         
         <!-- course name-->
          <div>
-            <label>NAME</label>
-            <input type="text-" class="" name="name">
+            <label class="name">NAME</label>
+            <input type="text-" class="" name="name" id="name"><br><br><br><br>
         </div>
         <!--course code-->
          <div>
-            <label>code</label>
-            <input type="text-" class="" name="code">
+            <label class="name">code</label>
+            <input type="text-" class="" name="code" id="code"><br><br><br><br>
         </div>
         <!--department -->
          <div>
-            <label>dep</label>
-            <select name="department">
+            <label class="name">dep</label>
+            <select name="department" id="dep"> 
                 {{#each departments}}
                 <option value="{{_id}} ">{{department_name}} </option>
                 {{/each}}
-            </select>
+            </select><br><br><br><br>
         </div>
 
         <div>
-            <label>requre_course</label>
-            <select name="requre_course">
-            <option value="">"no required pre courses" </option>
+            <label class="name" >requre_course</label>
+            <select name="requre_course" id="select">
+            <option value="">no required pre courses </option>
 
                 {{#each courses}}
                 <option value="{{course_code}} ">{{course_name}} </option>
                 {{/each}}
-            </select>
+            </select><br><br>
         </div>
 
 
-        <button>add</button>
+        <button id="btn" >add</button>
 
     </form>
 </div>
-
-<h1>OUR COURSES</h1>
-<div>
+<h1> COURSES Available</h1>
+<table>
+    <tr>
+    <th>
+    Course Name
+    </th>
+     <th>
+        Course_code
+    </th>
+     <th>
+         requre_course
+    </th>
+   </tr>
     {{#each courses}}
     <!-- <a href="/courses/{{_id}}">{{course_name}}</a>  -->
-    <p>{{course_name}} - {{course_code}} -{{requre_course}} </p>
+    <tr>
+        
+    <td>{{course_name}} </td>
+     <td> {{course_code}} </td>
+     <td>{{requre_course}} </td>
     <br>
     {{/each}}
-</div>
+</table>
+ 
+    
+  
